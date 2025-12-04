@@ -12,8 +12,7 @@ import { useQuery } from "@tanstack/react-query";
 
 // ✅ BACKEND SE DATA
 const fetchApprovedDoctors = async () => {
-  const response = await fetch("https://hospital-management-16wx.onrender.com
-/api/doctors"); // yaha change
+  const response = await fetch("https://hospital-management-16wx.onrender.com/api/doctors"); // yaha change
   if (!response.ok) {
     throw new Error("Failed to fetch doctors");
   }
