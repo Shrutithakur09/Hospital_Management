@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Card, CardContent, Typography, Grid } from "@mui/material";
 
-const API_BASE = "https://hospital-management-16wx.onrender.com
-";
+const API_BASE = "https://hospital-management-16wx.onrender.com";
 
 const AmbulanceDashboard = () => {
   const [summary, setSummary] = useState(null);

@@ -2,8 +2,7 @@
 import React, { useEffect, useState } from "react";
 import { Paper, Typography, List, ListItem, ListItemText } from "@mui/material";
 
-const API_BASE = "https://hospital-management-16wx.onrender.com
-";
+const API_BASE = "https://hospital-management-16wx.onrender.com";
 
 const AmbulanceETA = () => {
   const [etas, setEtas] = useState([]);

@@ -11,8 +11,7 @@ const PatientDetails = () => {
   const [details, setDetails] = useState({})
   console.log(details)
   useEffect(() => {
-    fetch(`https://hospital-management-16wx.onrender.com
-/patients/${id}`)
+    fetch(`https://hospital-management-16wx.onrender.com/patients/${id}`)
       .then(res => res.json())
       .then(data => setDetails(data))
   }, [id])

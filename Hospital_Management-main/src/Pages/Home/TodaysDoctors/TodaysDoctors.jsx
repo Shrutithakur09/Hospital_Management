@@ -11,8 +11,7 @@ import { NavLink } from "react-router-dom";
 export default function TodaysDoctors() {
   const [doctors, setDoctors] = React.useState([]);
   React.useEffect(() => {
-    fetch("https://hospital-management-16wx.onrender.com
-/doctors")
+    fetch("https://hospital-management-16wx.onrender.com/doctors")
       .then((res) => res.json())
       .then((data) => setDoctors(data));
   }, []);

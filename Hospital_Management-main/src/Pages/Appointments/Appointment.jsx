@@ -30,8 +30,7 @@ const Appointment = () => {
     //   // patientSymptoms: formData.get('symptoms'),
     // }
     // console.log(data);
-    // fetch('https://hospital-management-16wx.onrender.com
-/appointments', {
+    // fetch('https://hospital-management-16wx.onrender.com/appointments', {
     //   method: 'POST',
     //   headers: {
     //     'content-type': 'application/json'

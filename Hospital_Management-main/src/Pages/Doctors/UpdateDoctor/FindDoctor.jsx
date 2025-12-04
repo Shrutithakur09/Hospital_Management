@@ -14,8 +14,7 @@ const FindDoctor = () => {
   console.log(doctors);
 
   useEffect(() => {
-    fetch("https://hospital-management-16wx.onrender.com
-/approvedDoctors")
+    fetch("https://hospital-management-16wx.onrender.com/approvedDoctors")
       .then((res) => res.json())
       .then((data) => setDoctors(data));
   }, []);
@@ -44,8 +43,7 @@ const FindDoctor = () => {
   };
 
   // const handleUpdate = (id) => {
-  //   fetch(`https://hospital-management-16wx.onrender.com
-/doctors/${id}`, {
+  //   fetch(`https://hospital-management-16wx.onrender.com/doctors/${id}`, {
   //     method: "PUT",
   //     headers: {
   //       "Content-Type": "application/json",

@@ -14,8 +14,7 @@ import approvalIcon from '../../../utils/no-approval.png'
 export default function ApproveDoctor() {
     const [data, setData] = React.useState([]);
     React.useEffect(() => {
-        fetch("https://hospital-management-16wx.onrender.com
-/pendingDoctors")
+        fetch("https://hospital-management-16wx.onrender.com/pendingDoctors")
             .then((res) => res.json())
             .then((data) => setData(data));
     }, [data]);
@@ -31,8 +30,7 @@ export default function ApproveDoctor() {
                 }
             });
         // update the data
-        fetch("https://hospital-management-16wx.onrender.com
-/pendingDoctors")
+        fetch("https://hospital-management-16wx.onrender.com/pendingDoctors")
             .then((res) => res.json())
             .then((data) => setData(data));
     };
@@ -48,8 +46,7 @@ export default function ApproveDoctor() {
                 }
             });
         // update the data
-        fetch("https://hospital-management-16wx.onrender.com
-/pendingDoctors")
+        fetch("https://hospital-management-16wx.onrender.com/pendingDoctors")
             .then((res) => res.json())
             .then((data) => setData(data));
     };

@@ -14,8 +14,7 @@ const ViewDoctors = () => {
   const [loading, setLoading] = React.useState(true);
 
   React.useEffect(() => {
-    fetch("https://hospital-management-16wx.onrender.com
-/approvedDoctors")
+    fetch("https://hospital-management-16wx.onrender.com/approvedDoctors")
       .then((res) => res.json())
       .then((data) => {
         setDoctors(data);

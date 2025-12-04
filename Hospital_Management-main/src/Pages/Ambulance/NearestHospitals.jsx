@@ -14,8 +14,7 @@ import {
 } from "@mui/material";
 import AmbulanceMap from "./AmbulanceMap";
 
-const API_BASE = "https://hospital-management-16wx.onrender.com
-";
+const API_BASE = "https://hospital-management-16wx.onrender.com";
 
 const NearestHospitals = () => {
   const [lat, setLat] = useState(30.356); // sample: Patiala area
