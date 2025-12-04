@@ -47,5 +47,5 @@ app.use("/api", feedbackRoutes);
 app.get("/", (req, res) => res.send("Hospital Backend Running ✔"));
 
 app.listen(5000, () =>
-  console.log("Server running on http://localhost:5000")
+  console.log("Server running on https://hospital-management-16wx.onrender.com")
 );
