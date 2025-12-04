@@ -1,0 +1,75 @@
+name,address,city,state,pincode,beds_available,phone_number,ambulance_available,latitude,longitude
+Dayanand Medical College Hospital,Tagore Nagar,Patiala,Punjab,147001,true,0175-2304041,true,30.3398,76.3869
+Christian Medical College Hospital,Tripuri Road,Patiala,Punjab,147001,true,0175-2212641,true,30.3535,76.3906
+Guru Nanak Mission Hospital,Gill Road,Patiala,Punjab,147001,false,0175-2270059,true,30.3562,76.3668
+Sri Muktsar Sahib Hospital,Near Bus Stand,Patiala,Punjab,147001,true,0175-2230051,false,30.3714,76.3847
+Government Medical College,Sangrur Road,Patiala,Punjab,147001,true,0175-2211002,true,30.3441,76.3987
+Advanced Hospital and Research Centre,Leela Bhawan,Patiala,Punjab,147001,true,0175-2216666,true,30.3512,76.3847
+Rajindra Hospital,Mohindra College Campus,Patiala,Punjab,147001,true,0175-2214352,true,30.3601,76.3794
+Civil Hospital,Leela Bhawan,Patiala,Punjab,147001,true,0175-2210012,true,30.3523,76.3856
+Mata Kaushalya Charitable Hospital,Tripuri Road,Patiala,Punjab,147001,true,0175-2214245,true,30.3541,76.3912
+Punjab Institute of Medical Sciences,Nabha Road,Patiala,Punjab,147001,true,0175-2293333,true,30.3456,76.3987
+Sant Baba Hari Ram Hospital,Patiala Road,Patiala,Punjab,147001,true,0175-2235678,true,30.3489,76.3912
+Saket Hospital,Leela Bhawan,Patiala,Punjab,147001,true,0175-2217890,true,30.3533,76.3845
+Amar Hospital,Nabha Road,Patiala,Punjab,147001,true,0175-2224567,true,30.3467,76.3976
+Dr. Jain Hospital,Tripuri Road,Patiala,Punjab,147001,true,0175-2219876,true,30.3542,76.3901
+Sangha Hospital,Gill Road,Patiala,Punjab,147001,true,0175-2232345,true,30.3559,76.3672
+Mohindra Hospital,College Campus,Patiala,Punjab,147001,true,0175-2215432,true,30.3603,76.3791
+City Heart Hospital,Nabha Road,Patiala,Punjab,147001,true,0175-2226789,true,30.3478,76.3965
+Noble Hospital,Leela Bhawan,Patiala,Punjab,147001,true,0175-2218765,true,30.3524,76.3853
+Sindhu Hospital,Tripuri Road,Patiala,Punjab,147001,true,0175-2233456,true,30.3536,76.3918
+Sanjivani Hospital,Gill Road,Patiala,Punjab,147001,true,0175-2227890,true,30.3561,76.3679
+Fortis Hospital,Sector 62,Noida,Uttar Pradesh,201301,true,0120-4855000,true,28.6289,77.3749
+Max Hospital,Sector 19,Noida,Uttar Pradesh,201301,true,0120-4318000,true,28.6139,77.3910
+Jaypee Hospital,Sector 128,Noida,Uttar Pradesh,201304,true,0120-4129000,true,28.6032,77.3552
+Motherhood Hospital,Sector 40,Noida,Uttar Pradesh,201301,true,0120-4781000,true,28.6099,77.3737
+Cloudnine Hospital,Sector 51,Noida,Uttar Pradesh,201301,true,0120-4044000,true,28.6234,77.3832
+Apollo Hospitals,Sector 26,Noida,Uttar Pradesh,201301,true,0120-4372000,true,28.6167,77.3910
+Metro Hospitals,Sector 16,Noida,Uttar Pradesh,201301,true,0120-4567890,true,28.6078,77.3748
+Family Hospital,Sector 104,Noida,Uttar Pradesh,201304,true,0120-4223456,true,28.5998,77.3476
+Dr. Batra's Hospital,Sector 37,Noida,Uttar Pradesh,201301,true,0120-4112233,true,28.6087,77.3679
+Nurture Multispecialty Hospital,Sector 75,Noida,Uttar Pradesh,201301,true,0120-4334455,true,28.6210,77.3832
+AIIMS Hospital,Ansari Nagar,Delhi,Delhi,110029,true,011-26588500,true,28.5665,77.2104
+Sir Ganga Ram Hospital,Rajinder Nagar,Delhi,Delhi,110060,true,011-42251600,true,28.6304,77.2177
+Apollo Hospital,Sarita Vihar,Delhi,Delhi,110076,true,011-26825555,true,28.5355,77.2913
+Medanta Hospital,Sector 38,Noida,Delhi,201303,true,0124-4141414,true,28.4595,77.3535
+Max Smart Super Speciality Hospital,Saket,Delhi,Delhi,110017,true,011-26515050,true,28.5166,77.2124
+Fortis Hospital,Vasant Kunj,Delhi,Delhi,110070,true,011-26172700,true,28.5142,77.1635
+Artemis Hospital,Sector 7,Gurugram,Haryana,122001,true,0124-4244444,true,28.4655,77.0766
+Indraprastha Apollo Hospitals,Sarita Vihar,Delhi,Delhi,110076,true,011-26925858,true,28.5355,77.2913
+Safdarjung Hospital,Safdarjung Enclave,Delhi,Delhi,110029,true,011-26165979,true,28.5699,77.2045
+Army Hospital Research & Referral,Delhi Cantonment,Delhi,Delhi,110010,true,011-25699011,true,28.6069,77.1497
+Ram Manohar Lohia Hospital,New Delhi,Delhi,Delhi,110001,true,011-23711351,true,28.6245,77.2127
+Lok Nayak Hospital,New Delhi,Delhi,Delhi,110002,true,011-23231201,true,28.6284,77.2407
+Maulana Azad Medical College,New Delhi,Delhi,Delhi,110002,true,011-23237420,true,28.6284,77.2407
+Hindu Rao Hospital,Civil Lines,Delhi,Delhi,110054,true,011-23863706,true,28.6737,77.2264
+Dr. Baba Saheb Ambedkar Hospital,Rohini,Delhi,Delhi,110085,true,011-27054037,true,28.7176,77.1150
+Guru Tegh Bahadur Hospital,Dilshad Garden,Delhi,Delhi,110095,true,011-22593322,true,28.6667,77.2833
+Sanjay Gandhi Memorial Hospital,Mangolpuri,Delhi,Delhi,110083,true,011-27672807,true,28.6906,77.0792
+Deen Dayal Upadhyay Hospital,Hari Nagar,Delhi,Delhi,110064,true,011-25418099,true,28.6305,77.1051
+Chacha Nehru Bal Chikitsalaya,Geeta Colony,Delhi,Delhi,110031,true,011-22414485,true,28.6409,77.2769
+St. Stephen's Hospital,Tis Hazari,Delhi,Delhi,110054,true,011-23933020,true,28.6737,77.2264
+Metro Hospital,Preet Vihar,Delhi,Delhi,110092,true,011-22447735,true,28.6367,77.3008
+Dharamshila Narayana Superspeciality Hospital,Vasundhara Enclave,Delhi,Delhi,110096,true,011-43192000,true,28.6117,77.3289
+Rockland Hospital,Dwarka,Delhi,Delhi,110078,true,011-28082222,true,28.5784,77.0650
+Manipal Hospital,Dwarka,Delhi,Delhi,110078,true,011-26794444,true,28.5784,77.0650
+BLK-MAX Super Speciality Hospital,Pusa Road,Delhi,Delhi,110005,true,011-30403040,true,28.6404,77.1775
+Sir Sunderlal Hospital,Banaras Hindu University,Delhi,Delhi,110005,true,0542-2368700,true,25.3022,82.9845
+Action Cancer Hospital,Paschim Vihar,Delhi,Delhi,110063,true,011-25272735,true,28.6619,77.0971
+Jaipur Golden Hospital,Rohini,Delhi,Delhi,110085,true,011-27667777,true,28.7176,77.1150
+Primus Super Speciality Hospital,Chanakyapuri,Delhi,Delhi,110021,true,011-30484050,true,28.5931,77.1631
+Aster Hospital,Dwarka,Delhi,Delhi,110078,true,011-26781111,true,28.5784,77.0650
+Aakash Healthcare,Dwarka,Delhi,Delhi,110078,true,011-28541212,true,28.5784,77.0650
+Holy Family Hospital,Okhla,Delhi,Delhi,110025,true,011-26921021,true,28.5355,77.2913
+Max Hospital,Patparganj,Delhi,Delhi,110092,true,011-22447737,true,28.6367,77.3008
+Fortis Escorts Hospital,Okhla,Delhi,Delhi,110025,true,011-26825555,true,28.5355,77.2913
+Ayushman Hospital,Sector 16,Rohini,Delhi,110085,true,011-27677777,true,28.7176,77.1150
+Sarvodaya Hospital,Sector 8,Rohini,Delhi,110085,true,011-27677575,true,28.7176,77.1150
+Narayana Multispeciality Hospital,Sector 26,Noida,Uttar Pradesh,201301,true,0120-3082222,true,28.6167,77.3910
+Sitaram Bhartia Institute of Science and Research,Munirka,Delhi,Delhi,110067,true,011-26852209,true,28.5635,77.1748
+Centre for Sight Hospital,Lajpat Nagar,Delhi,Delhi,110024,true,011-26441919,true,28.5636,77.2383
+National Heart Institute,East of Kailash,Delhi,Delhi,110065,true,011-26264394,true,28.5415,77.2588
+Dr. Mohan's Diabetes Speciality Centre,Noida,Uttar Pradesh,201301,true,0120-4999222,true,28.6139,77.3910
+Wockhardt Hospitals,Moti Nagar,Delhi,Delhi,110015,true,011-25101111,true,28.6634,77.1394
+Care Hospital,Sector 56,Noida,Uttar Pradesh,201301,true,0120-4567890,true,28.6234,77.3832
+Shanti Mukand Hospital,Vikas Marg,Delhi,Delhi,110092,true,011-22712314,true,28.6367,77.3008
