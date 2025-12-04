@@ -20,6 +20,7 @@ const NearestHospitals = () => {
   const [lat, setLat] = useState(30.356); // sample: Patiala area
   const [lng, setLng] = useState(76.386);
   const [radiusKm, setRadiusKm] = useState(5);
+
   const [items, setItems] = useState([]);
   const [selectedItem, setSelectedItem] = useState(null); // selected hospital + distance
   const [loading, setLoading] = useState(false);
@@ -30,32 +31,20 @@ const NearestHospitals = () => {
     setMsg("");
 
     try {
-      // Future me radius/lat/lng ke hisaab se filter kar sakte ho.
-      // Abhi backend se saare hospitals laa rahe hain.
-      const res = await fetch(`${API_BASE}/api/hospitals`);
+      // ✅ Ab nearby API use kar rahe hain jo distanceKm DB se bhej rahi hai
+      const params = new URLSearchParams({
+        lat: lat.toString(),
+        lng: lng.toString(),
+        radiusKm: radiusKm.toString(),
+      });
+
+      const res = await fetch(`${API_BASE}/api/hospitals/nearby?${params}`);
       if (!res.ok) {
         throw new Error("Failed to load");
       }
 
-      const raw = await res.json();
-
-      // Backend se jo fields aa rahe hain unko component ke format me convert kar rahe hain
-      const data = raw.map((h) => ({
-        hospital: {
-          name: h.name,
-          address: h.address,
-          city: h.city,
-          state: h.state,
-          phoneNumber: h.phone_number,
-          bedsAvailable: h.beds_available,
-          ambulanceAvailable: h.ambulance_available,
-          latitude: h.latitude,
-          longitude: h.longitude,
-        },
-        // Abhi ke liye dummy distance = 0 km
-        // Chaaho to baad me lat/lng se actual distance calculate kar sakte ho
-        distanceKm: 0,
-      }));
+      const data = await res.json();
+      console.log("Nearby hospitals data =>", data);
 
       setItems(data);
 
@@ -63,7 +52,7 @@ const NearestHospitals = () => {
         setMsg("No hospitals found in this radius.");
         setSelectedItem(null);
       } else {
-        // default: pehla hospital select
+        // default: sabse nearest hospital select
         setSelectedItem(data[0]);
       }
     } catch (err) {
@@ -196,7 +185,13 @@ const NearestHospitals = () => {
                   <TableCell>
                     {item.hospital.ambulanceAvailable ? "Yes" : "No"}
                   </TableCell>
-                  <TableCell>{item.distanceKm.toFixed(2)}</TableCell>
+
+                  {/* ✅ yahan backend se aaya distanceKm */}
+                  <TableCell>
+                    {typeof item.distanceKm === "number"
+                      ? item.distanceKm.toFixed(2)
+                      : "-"}
+                  </TableCell>
                 </TableRow>
               ))}
               {items.length === 0 && !loading && (
