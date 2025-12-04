@@ -21,31 +21,49 @@ const NearestHospitals = () => {
   const [lng, setLng] = useState(76.386);
   const [radiusKm, setRadiusKm] = useState(5);
   const [items, setItems] = useState([]);
-  const [selectedItem, setSelectedItem] = useState(null); // 👈 selected hospital + distance
+  const [selectedItem, setSelectedItem] = useState(null); // selected hospital + distance
   const [loading, setLoading] = useState(false);
   const [msg, setMsg] = useState("");
 
   const loadHospitals = async () => {
     setLoading(true);
     setMsg("");
+
     try {
-      const params = new URLSearchParams({
-        lat: lat.toString(),
-        lng: lng.toString(),
-        radiusKm: radiusKm.toString(),
-      });
-      const res = await fetch(`${API_BASE}/api/hospitals/nearby?${params}`);
+      // Future me radius/lat/lng ke hisaab se filter kar sakte ho.
+      // Abhi backend se saare hospitals laa rahe hain.
+      const res = await fetch(`${API_BASE}/api/hospitals`);
       if (!res.ok) {
         throw new Error("Failed to load");
       }
-      const data = await res.json();
+
+      const raw = await res.json();
+
+      // Backend se jo fields aa rahe hain unko component ke format me convert kar rahe hain
+      const data = raw.map((h) => ({
+        hospital: {
+          name: h.name,
+          address: h.address,
+          city: h.city,
+          state: h.state,
+          phoneNumber: h.phone_number,
+          bedsAvailable: h.beds_available,
+          ambulanceAvailable: h.ambulance_available,
+          latitude: h.latitude,
+          longitude: h.longitude,
+        },
+        // Abhi ke liye dummy distance = 0 km
+        // Chaaho to baad me lat/lng se actual distance calculate kar sakte ho
+        distanceKm: 0,
+      }));
+
       setItems(data);
 
       if (!data.length) {
         setMsg("No hospitals found in this radius.");
         setSelectedItem(null);
       } else {
-        // default: sabse nearest hospital ko select karo
+        // default: pehla hospital select
         setSelectedItem(data[0]);
       }
     } catch (err) {
@@ -163,7 +181,7 @@ const NearestHospitals = () => {
                   key={idx}
                   hover
                   selected={selectedItem === item}
-                  onClick={() => setSelectedItem(item)} // 👈 row click → map update
+                  onClick={() => setSelectedItem(item)} // row click → map update
                   sx={{ cursor: "pointer" }}
                 >
                   <TableCell>{item.hospital.name}</TableCell>
