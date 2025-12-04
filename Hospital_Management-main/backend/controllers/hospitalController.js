@@ -1,6 +1,23 @@
 // backend/controllers/hospitalController.js
 import Hospital from "../models/Hospital.js";
-import { distanceKm } from "../utils/geo.js";
+
+// ✅ Haversine helper (fallback ke liye – sirf tab use hoga jab DB me distance na mile)
+function getDistanceKm(lat1, lon1, lat2, lon2) {
+  const R = 6371; // km
+  const dLat = ((lat2 - lat1) * Math.PI) / 180;
+  const dLon = ((lon2 - lon1) * Math.PI) / 180;
+
+  const a =
+    Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+    Math.cos(lat1 * (Math.PI / 180)) *
+      Math.cos(lat2 * (Math.PI / 180)) *
+      Math.sin(dLon / 2) *
+      Math.sin(dLon / 2);
+
+  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+
+  return R * c;
+}
 
 // GET /api/hospitals  -> list all
 export const getHospitals = async (req, res) => {
@@ -16,17 +33,11 @@ export const getHospitals = async (req, res) => {
 // GET /api/hospitals/nearby?lat=..&lng=..&radiusKm=5
 export const getNearbyHospitals = async (req, res) => {
   try {
+    // radius filter ke liye
     const lat = parseFloat(req.query.lat);
     const lng = parseFloat(req.query.lng);
     const radiusKm = parseFloat(req.query.radiusKm || "5");
 
-    if (Number.isNaN(lat) || Number.isNaN(lng)) {
-      return res
-        .status(400)
-        .json({ message: "lat and lng query params are required" });
-    }
-
-    // 1) Saare hospitals le lo
     const hospitals = await Hospital.find();
 
     console.log(
@@ -36,26 +47,45 @@ export const getNearbyHospitals = async (req, res) => {
       hospitals.length
     );
 
-    // 2) Distance calculate + radius filter
     const nearbyRaw = hospitals
       .map((h) => {
+        // 👉 1) PEHLE DATABASE ME SE DISTANCE FIELD TRY KARO
+        let d =
+          h.distanceKm ??
+          h.distance_km ??
+          h.distance ??
+          h.Distance ??
+          null;
+
+        if (d != null) {
+          d = Number(d);
+          if (Number.isNaN(d)) return null;
+          return { hospital: h, distanceKm: d };
+        }
+
+        // 👉 2) Agar DB me distance nahi mila TOH fallback = calculate
+        // (sirf isi case me calculation chalegi)
+        if (Number.isNaN(lat) || Number.isNaN(lng)) {
+          // patient location hi nahi di → distance nikal hi nahi sakte
+          return null;
+        }
+
         let hospLat = null;
         let hospLng = null;
 
-        // ✅ GeoJSON location field se coordinates
+        // GeoJSON location se
         if (h.location && Array.isArray(h.location.coordinates)) {
-          // GeoJSON order: [lng, lat]
+          // [lng, lat]
           hospLng = Number(h.location.coordinates[0]);
           hospLat = Number(h.location.coordinates[1]);
         }
 
-        // ✅ Agar direct latitude/longitude fields bhi hon to fallback
+        // direct latitude/longitude fields
         if (h.latitude != null && h.longitude != null) {
           hospLat = Number(h.latitude);
           hospLng = Number(h.longitude);
         }
 
-        // Agar coordinates hi nahi mile to skip
         if (
           hospLat == null ||
           hospLng == null ||
@@ -65,14 +95,19 @@ export const getNearbyHospitals = async (req, res) => {
           return null;
         }
 
-        const d = distanceKm(lat, lng, hospLat, hospLng);
-        return { hospital: h, distanceKm: d };
+        const calcD = getDistanceKm(lat, lng, hospLat, hospLng);
+        return { hospital: h, distanceKm: calcD };
       })
-      .filter((item) => item !== null && item.distanceKm <= radiusKm)
+      // null hatao
+      .filter((item) => item !== null)
+      // radius filter (agar radiusKm number hai)
+      .filter((item) =>
+        Number.isNaN(radiusKm) ? true : item.distanceKm <= radiusKm
+      )
+      // nearest first
       .sort((a, b) => a.distanceKm - b.distanceKm);
 
-    // 3) ✅ FRONTEND-FRIENDLY RESPONSE SHAPE
-    //    snake_case -> camelCase convert karke return karo
+    // 👉 3) FRONTEND-FRIENDLY RESPONSE
     const nearby = nearbyRaw.map((item) => {
       const h = item.hospital;
 
@@ -91,6 +126,7 @@ export const getNearbyHospitals = async (req, res) => {
           latitude: h.latitude,
           longitude: h.longitude,
         },
+        // DB waali value / calculated value dono ko 2 decimal tak round
         distanceKm: Number(item.distanceKm.toFixed(2)),
       };
     });
